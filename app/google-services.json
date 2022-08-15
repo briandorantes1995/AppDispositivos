@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "611895668908",
+    "project_id": "equipo3-92cee",
+    "storage_bucket": "equipo3-92cee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611895668908:android:dc069dd9bb605d0232ef09",
+        "android_client_info": {
+          "package_name": "com.example.equipo3dispositivosmoviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611895668908-286tappr0j5er288vcrofsa3919srvpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2BUqCBiJiCHcYsf8xnf4fr5TXCcf5uq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611895668908-286tappr0j5er288vcrofsa3919srvpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
