@@ -4,13 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris"
-    tools:context=".HomeActivity">
+    tools:context=".SessionActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/gris"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".RegistroActivity">
 
         <TextView
@@ -36,21 +43,33 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.142">
 
-            <TextView
-                android:id="@+id/EmailtextView"
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Email" />
+                android:layout_height="5dp" />
+
+            <EditText
+                android:id="@+id/Correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="5dp" />
 
-            <TextView
-                android:id="@+id/ProvidertextView"
+            <EditText
+                android:id="@+id/Contrasena"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Proveedor" />
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="numberPassword"
+                android:minHeight="48dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -62,17 +81,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/CerrarSession"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/LogginButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="120dip"
+                    android:layout_height="60dip"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/coral"
-                    android:text="Cerrar Sesion"
-                    android:textColor="#673AB7" />
-
+                    android:backgroundTint="#673AB7"
+                    android:fontFamily="monospace"
+                    android:text="@string/loggin"
+                    android:textColor="#FFEB3B" />
             </LinearLayout>
-
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

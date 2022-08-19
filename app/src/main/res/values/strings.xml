@@ -6,4 +6,6 @@
     <string name="apellidos">Apellidos</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Apellidos" />
 </resources>

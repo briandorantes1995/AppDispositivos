@@ -4,16 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthActivity"
-    android:background="@color/gris">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".Inicio">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -25,42 +16,24 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142">
+        app:layout_constraintVertical_bias="0.109">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
-
-        <EditText
-            android:id="@+id/Correo"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:fontFamily="sans-serif-black"
+            android:text="Ya tienes una cuenta?"
+            android:textAlignment="center"
+            android:textColor="#673AB7"
+            android:textSize="34sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp" />
-
-        <EditText
-            android:id="@+id/Contrasena"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="numberPassword"
-            android:minHeight="48dp"
-            android:autofillHints="" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
+            android:layout_height="60dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +53,7 @@
                 app:rippleColor="#009688" />
 
             <Space
-                android:layout_width="5dp"
+                android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
@@ -96,5 +69,4 @@
                 android:textColor="#FFEB3B" />
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

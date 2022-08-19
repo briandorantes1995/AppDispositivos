@@ -7,41 +7,24 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.components.ComponentRegistrar
 
-class AuthActivity : AppCompatActivity() {
+class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.authactivity)
+        setContentView(R.layout.activity_registro)
 
         //Setup
         Setup()
     }
     private fun Setup(){
-        
         title = "Autenticacion"
         val Registro = findViewById<Button>(R.id.RegistrarButton)
-        val Loggin = findViewById<Button>(R.id.LogginButton)
         val Email = findViewById<TextView>(R.id.Correo)
         val Contra = findViewById<TextView>(R.id.Contrasena)
         Registro.setOnClickListener(){
             if (Email.text.isNotEmpty() && Contra.text.isNotEmpty()){
                 FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(Email.text.toString(),Contra.text.toString())
-                    .addOnCompleteListener{
-                        if(it.isSuccessful){
-                            Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
-                        }else{
-                            MostrarError()
-                        }
-                    }
-
-            }
-        }
-        Loggin.setOnClickListener(){
-            if (Email.text.isNotEmpty() && Contra.text.isNotEmpty()){
-                FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(Email.text.toString(),Contra.text.toString())
                     .addOnCompleteListener{
                         if(it.isSuccessful){
                             Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
