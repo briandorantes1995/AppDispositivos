@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,7 +30,14 @@ class SessionActivity : AppCompatActivity() {
                     .signInWithEmailAndPassword(Email.text.toString(),Contra.text.toString())
                     .addOnCompleteListener{
                         if(it.isSuccessful){
-                            Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
+                            if(it.result?.user?.isEmailVerified == true){
+                                Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
+                            }
+                            else{
+                                sendEmailVerification()
+                                FirebaseAuth.getInstance().signOut()
+                                MostrarMsg()
+                            }
                         }else{
                             MostrarError()
                         }
@@ -37,6 +45,33 @@ class SessionActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun MostrarMsg(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Verificacion de Cuenta")
+        builder.setMessage("Te enviamos una verificacion de cuenta a tu correo," +
+                " se necesita aceptar para utilizar la aplicacion")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog:AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun sendEmailVerification() {
+        //get instance of firebase auth
+        val firebaseAuth = FirebaseAuth.getInstance()
+        //get current user
+        val firebaseUser = firebaseAuth.currentUser
+
+        //send email verification
+        firebaseUser!!.sendEmailVerification()
+            .addOnSuccessListener {
+                Toast.makeText(this, "Correo Enviado", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "No se logron enviar el correo " + e.message, Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     private fun MostrarError(){
