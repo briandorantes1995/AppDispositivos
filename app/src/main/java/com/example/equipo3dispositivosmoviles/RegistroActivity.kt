@@ -30,7 +30,7 @@ class RegistroActivity : AppCompatActivity() {
                         if(it.isSuccessful){
                             sendEmailVerification()
                             MostrarMsg()
-                            onBackPressed()
+//                            onBackPressed()
 //                            Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
                         }else{
                             MostrarError()
@@ -55,7 +55,9 @@ class RegistroActivity : AppCompatActivity() {
         builder.setTitle("Verificacion de Cuenta")
         builder.setMessage("Te enviamos una verificacion de cuenta a tu correo," +
                 " se necesita aceptar para utilizar la aplicacion")
-        builder.setPositiveButton("Aceptar",null)
+        builder.setPositiveButton("Ok") { dialog, which ->
+            Home()
+        }
         val dialog:AlertDialog = builder.create()
         dialog.show()
     }
@@ -76,10 +78,9 @@ class RegistroActivity : AppCompatActivity() {
             }
 
     }
-    private fun Inicio(email:String,provider:ProviderType){
-        val Ini= Intent(this,HomeActivity::class.java).apply{
-            putExtra("email",email)
-            putExtra("provider",provider.name)
+    private fun Home(){
+        val Ini= Intent(this,Inicio::class.java).apply{
+
         }
         startActivity(Ini)
     }
