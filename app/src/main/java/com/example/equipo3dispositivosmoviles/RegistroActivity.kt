@@ -22,18 +22,20 @@ class RegistroActivity : AppCompatActivity() {
         val Registro = findViewById<Button>(R.id.RegistrarButton)
         val Email = findViewById<TextView>(R.id.Correo)
         val Contra = findViewById<TextView>(R.id.Contrasena)
+        val ContraConfirm = findViewById<TextView>(R.id.contrasenavalidar)
         Registro.setOnClickListener(){
-            if (Email.text.isNotEmpty() && Contra.text.isNotEmpty()){
+            if ((Email.text.isNotEmpty() && Contra.text.isNotEmpty())&& Contra.text.toString() ==ContraConfirm.text.toString()){
                 FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(Email.text.toString(),Contra.text.toString())
                     .addOnCompleteListener{
                         if(it.isSuccessful){
                             sendEmailVerification()
                             MostrarMsg()
-//                            onBackPressed()
-//                            Inicio(it.result?.user?.email?:"",ProviderType.BASIC)
+                            Home()
+                        }else if(Contra.text.toString() != ContraConfirm.text.toString()){
+                            MostrarError("Las contrasenas deben ser iguales")
                         }else{
-                            MostrarError()
+                            MostrarError("Se ha producido un error")
                         }
                     }
 
@@ -41,10 +43,10 @@ class RegistroActivity : AppCompatActivity() {
         }
     }
 
-    private fun MostrarError(){
+    private fun MostrarError(a: String){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error")
+        builder.setMessage(a)
         builder.setPositiveButton("Aceptar",null)
         val dialog:AlertDialog = builder.create()
         dialog.show()
@@ -56,7 +58,7 @@ class RegistroActivity : AppCompatActivity() {
         builder.setMessage("Te enviamos una verificacion de cuenta a tu correo," +
                 " se necesita aceptar para utilizar la aplicacion")
         builder.setPositiveButton("Ok") { dialog, which ->
-            Home()
+
         }
         val dialog:AlertDialog = builder.create()
         dialog.show()
