@@ -32,13 +32,13 @@ class RegistroActivity : AppCompatActivity() {
                             sendEmailVerification()
                             MostrarMsg()
                             Home()
-                        }else if(Contra.text.toString() != ContraConfirm.text.toString()){
-                            MostrarError("Las contrasenas deben ser iguales")
                         }else{
                             MostrarError("Se ha producido un error")
                         }
                     }
 
+            }else if(Contra.text.toString() != ContraConfirm.text.toString()){
+                MostrarError("Las contrasenas deben ser iguales")
             }
         }
     }
