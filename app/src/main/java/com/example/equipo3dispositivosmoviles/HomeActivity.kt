@@ -2,6 +2,7 @@ package com.example.equipo3dispositivosmoviles
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
@@ -22,8 +23,13 @@ class HomeActivity : AppCompatActivity() {
     }
     private fun setup(email:String,provider:String) {
         title = "Inicio"
+        val admins =arrayOf("diego-fraga2011@hotmail.com", "dany2001deleon@gmail.com", "briandorantes@hotmail.com")
         val correo = findViewById<TextView>(R.id.EmailtextView)
         correo.text = email
+        val admin = findViewById<TextView>(R.id.adminview)
+        if(admins.contains(email)){
+            admin.visibility = View.VISIBLE
+        }
         val proovedor = findViewById<TextView>(R.id.ProvidertextView)
         proovedor.text = provider
         val cerrar = findViewById<Button>(R.id.CerrarSession)
