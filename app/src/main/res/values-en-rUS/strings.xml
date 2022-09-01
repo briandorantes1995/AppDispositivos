@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Equipo3DispositivosMoviles</string>
+    <string name="registrarse">Register</string>
+    <string name="loggin">Login</string>
+    <string name="nombres">Names</string>
+    <string name="apellidos">MiddleNames</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="Nombres">Names</string>
+    <string name="Apellidos" />
+    <string name="bienvenido">Welcome</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cerrar_sesion">Logout</string>
+    <string-array name="language">
+        <item>Español</item>
+        <item>English</item>
+    </string-array>
+</resources>
+
