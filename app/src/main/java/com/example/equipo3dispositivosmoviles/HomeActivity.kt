@@ -73,13 +73,9 @@ class HomeActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
         if (position == 1){
             val languague = "en-rUS"
             setLanguageForApp(languague)
-            startActivity(intent)
-            finish()
         }else if(position == 0){
             val languague = "es-rMX"
             setLanguageForApp(languague)
-            startActivity(intent)
-            finish()
         }
     }
 
